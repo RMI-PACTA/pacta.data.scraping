@@ -3,3 +3,4 @@
 ^LICENSE\.md$
 ^\.DS_Store$
 ^\.github$
+^_pkgdown\.yml$
