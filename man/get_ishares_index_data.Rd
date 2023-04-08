@@ -23,7 +23,11 @@ This function will scrape and process holdings data from the iShares website.
 }
 \examples{
 \dontrun{
-url <- "https://www.ishares.com/uk/individual/en/products/251813/ishares-global-corporate-bond-ucits-etf/"
+url <-
+  paste0(
+    "https://www.ishares.com/uk/individual/en/products/",
+    "251813/ishares-global-corporate-bond-ucits-etf/"
+  )
 name <- "iShares Global Corporate Bond UCITS ETF <USD (Distributing)>"
 timestamp <- "20211231"
 
