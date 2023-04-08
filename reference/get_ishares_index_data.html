@@ -80,7 +80,11 @@ day in the corresponding quarter.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://www.ishares.com/uk/individual/en/products/251813/ishares-global-corporate-bond-ucits-etf/"</span></span></span>
+<span class="r-in"><span><span class="va">url</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"https://www.ishares.com/uk/individual/en/products/"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"251813/ishares-global-corporate-bond-ucits-etf/"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"iShares Global Corporate Bond UCITS ETF &lt;USD (Distributing)&gt;"</span></span></span>
 <span class="r-in"><span><span class="va">timestamp</span> <span class="op">&lt;-</span> <span class="st">"20211231"</span></span></span>
 <span class="r-in"><span></span></span>
