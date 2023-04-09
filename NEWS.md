@@ -1,3 +1,3 @@
 # pacta.data.scraping (development version)
 
-- initial version
+* initial version
