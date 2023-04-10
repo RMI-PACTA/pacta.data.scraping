@@ -4,7 +4,7 @@
 \alias{get_currency_exchange_rates}
 \title{Get currency exchange rates for a given quarter from the IMF API}
 \usage{
-get_currency_exchange_rates(quarter, max_seconds = 30L)
+get_currency_exchange_rates(quarter, max_seconds = 60L)
 }
 \arguments{
 \item{quarter}{A single string containing the desired quarter of data in the

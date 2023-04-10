@@ -10,7 +10,7 @@
 #' @export
 
 get_currency_exchange_rates <-
-  function(quarter, max_seconds = 30L) {
+  function(quarter, max_seconds = 60L) {
     if (!grepl("^20[0-9]{2}-Q[1-4]$", quarter)) {
       error_msg <- "quarter must be in a format like {.val 2021-Q4}, not {.val {quarter}}"
       rlang::abort(cli::format_inline(error_msg))
