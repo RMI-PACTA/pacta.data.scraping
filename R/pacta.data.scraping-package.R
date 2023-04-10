@@ -2,6 +2,7 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @importFrom countrycode countryname
 #' @importFrom dplyr %>%
 ## usethis namespace: end
 NULL
