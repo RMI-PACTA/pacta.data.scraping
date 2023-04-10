@@ -34,7 +34,10 @@ get_ishares_index_data <- function(url, name, timestamp) {
     rvest::html_elements("#allHoldingsTable thead th") %>%
     rvest::html_text(trim = TRUE)
 
-  data_url <- paste0(url, "/1506575576011.ajax?tab=all&fileType=json&asOfDate=", timestamp)
+  last_date_of_qrt <- lubridate::quarter(lubridate::yq(timestamp), type = "date_last")
+  as_of_date <- format(last_date_of_qrt, "%Y%m%d")
+  
+  data_url <- paste0(url, "/1506575576011.ajax?tab=all&fileType=json&asOfDate=", as_of_date)
   data_path <- curl::curl_download(data_url, tempfile())
 
   raw_data <- suppressWarnings(
@@ -49,7 +52,7 @@ get_ishares_index_data <- function(url, name, timestamp) {
     dplyr::mutate(
       base_url = .env$url,
       index_name = .env$name,
-      timestamp = .env$timestamp
+      timestamp = .env$as_of_date
     )
 }
 
