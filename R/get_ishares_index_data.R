@@ -34,9 +34,9 @@ get_ishares_index_data <- function(url, name, timestamp) {
     rvest::html_elements("#allHoldingsTable thead th") %>%
     rvest::html_text(trim = TRUE)
 
-  last_date_of_qrt <- lubridate::quarter(lubridate::yq(timestamp), type = "date_last")
+  last_date_of_qrt <- lubridate::quarter(lubridate::as_date(timestamp), type = "date_last")
   as_of_date <- format(last_date_of_qrt, "%Y%m%d")
-  
+
   data_url <- paste0(url, "/1506575576011.ajax?tab=all&fileType=json&asOfDate=", as_of_date)
   data_path <- curl::curl_download(data_url, tempfile())
 
