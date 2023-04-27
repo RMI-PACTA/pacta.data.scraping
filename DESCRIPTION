@@ -21,7 +21,7 @@ Authors@R:
              role = c("aut", "ctr"),
              email = "aaxthelm@rmi.org",
              comment = c(ORCID = "0000-0001-8579-8565")),
-      person(given = "Rocky Mountain Institute",
+      person(given = "RMI",
              role = c("cph", "fnd"),
              email = "PACTA4investors@rmi.org"))
 Description: This package provides tools to scrape data from various web sources
