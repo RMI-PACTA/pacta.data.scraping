@@ -6,36 +6,36 @@
 #' @export
 
 get_index_regions <- function() {
-  em_url <- "https://www.msci.com/our-solutions/indexes/emerging-markets"
-
-  # start the headless browser and capture the DOM as HTML after JavaScript runs
-  session <- chromote::ChromoteSession$new()
-  session$Network$setUserAgentOverride(userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15")
-
-  { # these commands must be run together, hence the {...}
-    session$Page$navigate(em_url, wait_ = FALSE)
-    session$Page$loadEventFired() # wait until the page is loaded to continue
-  }
-
-  html <- session$Runtime$evaluate("document.documentElement.outerHTML")$result$value
-
-  session$close() # close the headless browser session
 
   # developed countries --------------------------------------------------------
+
+  dev_url <- "https://www.msci.com/our-solutions/indexes/developed-markets"
+
+  html <- fetch_url_html(dev_url)
 
   dev_countries <-
     html %>%
     rvest::read_html() %>%
-    rvest::html_elements(css = "#boxes-container-1 li") %>%
-    rvest::html_text2()
+    rvest::html_elements(css = ".cw-table") %>%
+    rvest::html_elements("td:not(.heading2)") %>%
+    rvest::html_text2() %>%
+    stringr::str_trim()
+
+  dev_countries <- dev_countries[dev_countries != ""]
 
   # emerging countries ---------------------------------------------------------
+
+  em_url <- "https://www.msci.com/our-solutions/indexes/emerging-markets"
+
+  html <- fetch_url_html(em_url)
 
   em_countries <-
     html %>%
     rvest::read_html() %>%
-    rvest::html_elements(css = "#boxes-container-2 li") %>%
-    rvest::html_text2()
+    rvest::html_elements(css = "#ms136-emi-010523 .index-type-container.index-type-equity") %>%
+    rvest::html_text2() %>%
+    strsplit("\n") %>%
+    unlist()
 
   # error if values are empty --------------------------------------------------
 
@@ -56,4 +56,22 @@ get_index_regions <- function() {
   dplyr::mutate(country_iso = countryname(.data$country, "iso2c")) %>%
   dplyr::distinct() %>%
   dplyr::arrange("equity_market", "country", "country_iso")
+}
+
+fetch_url_html <- function(url) {
+
+  # start the headless browser and capture the DOM as HTML after JavaScript runs
+  session <- chromote::ChromoteSession$new()
+  session$Network$setUserAgentOverride(userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15")
+
+  { # these commands must be run together, hence the {...}
+    session$Page$navigate(url, wait_ = FALSE)
+    session$Page$loadEventFired() # wait until the page is loaded to continue
+  }
+
+  html <- session$Runtime$evaluate("document.documentElement.outerHTML")$result$value
+
+  session$close() # close the headless browser session
+
+  return(html)
 }

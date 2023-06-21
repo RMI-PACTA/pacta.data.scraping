@@ -44,7 +44,8 @@ Imports:
     rvest,
     stats,
     tibble,
-    tidyr
+    tidyr,
+    stringr
 Depends: 
     R (>= 3.4.0)
 LazyData: true
