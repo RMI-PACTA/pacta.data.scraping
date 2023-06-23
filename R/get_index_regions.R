@@ -34,7 +34,7 @@ get_index_regions <- function() {
 
   ct <- V8::v8()
   #parse the html content from the js output and print it as text
-    render_script <- str_replace(
+    render_script <- stringr::str_replace(
       pattern = 'document.write',
       replacement = '',
       string = rvest::html_text2(js_script)
