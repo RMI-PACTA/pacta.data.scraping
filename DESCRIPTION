@@ -33,7 +33,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     cli (>= 3.5.0),
-    chromote,
     countrycode,
     curl,
     dplyr (>= 1.1.0),
@@ -45,7 +44,8 @@ Imports:
     stats,
     tibble,
     tidyr,
-    stringr
+    stringr,
+    V8
 Depends: 
     R (>= 3.4.0)
 LazyData: true
