@@ -11,8 +11,8 @@ get_ishares_index_data(url, name, timestamp)
 
 \item{name}{A string containing the name of the index.}
 
-\item{timestamp}{A string indicating the desired timestamp, by year and
-quarter, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for date
+\item{timestamp}{A string indicating the desired timestamp, by year, month
+and date, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for date
 specified.}
 }
 \value{
