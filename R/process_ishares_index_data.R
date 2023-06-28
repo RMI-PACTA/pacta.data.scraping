@@ -17,7 +17,7 @@ process_ishares_index_data <- function(data) {
       `Weight (%)` = as.double(.data$`Weight (%)`)
     ) %>%
     # summarize rows without an ISIN into one row (cash, derivatives, futures, etc.)
-    dplyr::group_by(.data$ISIN, .data$index_name, .data$timestamp) %>%
+    dplyr::group_by(.data$ISIN, .data$index_name, .data$as_of_date) %>%
     dplyr::summarise(
       `Market Value` = sum(.data$`Market Value`, na.rm = TRUE),
       `Weight (%)` = sum(.data$`Weight (%)`, na.rm = TRUE),
@@ -29,7 +29,7 @@ process_ishares_index_data <- function(data) {
     ) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(
-      .x = lubridate::ymd(.data$timestamp),
+      .x = lubridate::ymd(.data$as_of_date),
       year_quarter = paste0(lubridate::year(.data$.x), "Q", lubridate::quarter(.data$.x)),
       .x = NULL
     ) %>%
