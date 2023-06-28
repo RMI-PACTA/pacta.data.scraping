@@ -4,9 +4,9 @@
 #'
 #' @param url A string containing the url of the desired iShares index data.
 #' @param name A string containing the name of the index.
-#' @param timestamp A string indicating the desired timestamp, by year and
-#'   quarter, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for the first
-#'   day in the corresponding quarter.
+#' @param as_of_date A string indicating the desired date, by year, month
+#'  and date, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for date
+#'  specified.
 #'
 #' @return A data.frame, containing the un-processed iShares data.
 #'
@@ -18,14 +18,14 @@
 #'     "251813/ishares-global-corporate-bond-ucits-etf/"
 #'   )
 #' name <- "iShares Global Corporate Bond UCITS ETF <USD (Distributing)>"
-#' timestamp <- "20211231"
+#' as_of_date <- "20211231"
 #'
-#' get_ishares_index_data(url, name, timestamp)
+#' get_ishares_index_data(url, name, as_of_date)
 #' }
 #'
 #' @export
 
-get_ishares_index_data <- function(url, name, timestamp) {
+get_ishares_index_data <- function(url, name, as_of_date) {
   page_url <- paste0(url, "/?siteEntryPassthrough=true")
   page_path <- curl::curl_download(page_url, tempfile())
 
@@ -34,8 +34,7 @@ get_ishares_index_data <- function(url, name, timestamp) {
     rvest::html_elements("#allHoldingsTable thead th") %>%
     rvest::html_text(trim = TRUE)
 
-  last_date_of_qrt <- lubridate::quarter(lubridate::as_date(timestamp), type = "date_last")
-  as_of_date <- format(last_date_of_qrt, "%Y%m%d")
+  stopifnot(nchar(as_of_date) == 8)
 
   data_url <- paste0(url, "/1506575576011.ajax?tab=all&fileType=json&asOfDate=", as_of_date)
   data_path <- curl::curl_download(data_url, tempfile())
@@ -52,7 +51,7 @@ get_ishares_index_data <- function(url, name, timestamp) {
     dplyr::mutate(
       base_url = .env$url,
       index_name = .env$name,
-      timestamp = .env$as_of_date
+      as_of_date = .env$as_of_date
     )
 }
 
