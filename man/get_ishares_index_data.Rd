@@ -4,14 +4,14 @@
 \alias{get_ishares_index_data}
 \title{Scrape index data from the iShares website}
 \usage{
-get_ishares_index_data(url, name, timestamp)
+get_ishares_index_data(url, name, as_of_date)
 }
 \arguments{
 \item{url}{A string containing the url of the desired iShares index data.}
 
 \item{name}{A string containing the name of the index.}
 
-\item{timestamp}{A string indicating the desired timestamp, by year, month
+\item{as_of_date}{A string indicating the desired as_of_date, by year, month
 and date, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for date
 specified.}
 }
@@ -29,9 +29,9 @@ url <-
     "251813/ishares-global-corporate-bond-ucits-etf/"
   )
 name <- "iShares Global Corporate Bond UCITS ETF <USD (Distributing)>"
-timestamp <- "20211231"
+as_of_date <- "20211231"
 
-get_ishares_index_data(url, name, timestamp)
+get_ishares_index_data(url, name, as_of_date)
 }
 
 }
