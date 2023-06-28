@@ -5,8 +5,8 @@
 #' @param url A string containing the url of the desired iShares index data.
 #' @param name A string containing the name of the index.
 #' @param timestamp A string indicating the desired timestamp, by year and
-#'   quarter, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for the first
-#'   day in the corresponding quarter.
+#'   quarter, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for date
+#'   specified.
 #'
 #' @return A data.frame, containing the un-processed iShares data.
 #'

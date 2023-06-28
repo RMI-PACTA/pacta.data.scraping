@@ -12,8 +12,8 @@ get_ishares_index_data(url, name, timestamp)
 \item{name}{A string containing the name of the index.}
 
 \item{timestamp}{A string indicating the desired timestamp, by year and
-quarter, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for the first
-day in the corresponding quarter.}
+quarter, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for date
+specified.}
 }
 \value{
 A data.frame, containing the un-processed iShares data.
