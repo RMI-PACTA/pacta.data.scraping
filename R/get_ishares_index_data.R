@@ -36,9 +36,7 @@ get_ishares_index_data <- function(url, name, timestamp) {
 
   stopifnot(nchar(timestamp) == 8)
 
-  as_of_date <- format(timestamp, "%Y%m%d")
-
-  data_url <- paste0(url, "/1506575576011.ajax?tab=all&fileType=json&asOfDate=", as_of_date)
+  data_url <- paste0(url, "/1506575576011.ajax?tab=all&fileType=json&asOfDate=", timestamp)
   data_path <- curl::curl_download(data_url, tempfile())
 
   raw_data <- suppressWarnings(
@@ -53,7 +51,7 @@ get_ishares_index_data <- function(url, name, timestamp) {
     dplyr::mutate(
       base_url = .env$url,
       index_name = .env$name,
-      timestamp = .env$as_of_date
+      timestamp = .env$timestamp
     )
 }
 
