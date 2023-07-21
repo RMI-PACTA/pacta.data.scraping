@@ -1,3 +1,5 @@
+# pacta.data.scraping (development version)
+
 # pacta.data.scraping 0.1.0
 
 * `get_index_regions` adapted to suit new MSCI website layout. 
