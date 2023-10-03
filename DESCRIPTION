@@ -45,7 +45,8 @@ Imports:
     tibble,
     tidyr,
     stringr,
-    V8
+    V8,
+    logger
 Depends: 
     R (>= 3.4.0)
 LazyData: true
