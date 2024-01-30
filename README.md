@@ -31,6 +31,6 @@ install.packages("pacta.data.scraping", repos = "https://rmi-pacta.r-universe.de
 or from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("RMI-PACTA/pacta.data.scraping")
+# install.packages("pak")
+pak::pak("RMI-PACTA/pacta.data.scraping")
 ```
