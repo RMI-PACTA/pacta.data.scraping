@@ -34,6 +34,10 @@ get_index_regions <- function() {
     ct$get("JSON.stringify(chartDataDMJson)"),
     flatten = TRUE
   )
+  if (length(dm_data$categories) == 0) {
+    log_error("No data found for Developed Markets.")
+    stop("No data found for Developed Markets.")
+  }
   
   log_debug("extracting data from script.")
   dm_countries <- c()
@@ -72,6 +76,10 @@ get_index_regions <- function() {
     ct$get("JSON.stringify(chartDataEMJson)"),
     flatten = TRUE
   )
+  if (length(data$categories) == 0) {
+    log_error("No data found for Emerging Markets.")
+    stop("No data found for Emerging Markets.")
+  }
 
   log_debug("extracting data from script.")
   em_countries <- c()
