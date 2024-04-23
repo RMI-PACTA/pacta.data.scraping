@@ -38,8 +38,8 @@ get_index_regions <- function() {
     logger::log_error("No data found for Developed Markets.")
     stop("No data found for Developed Markets.")
   }
-  
-  log_debug("extracting data from script.")
+
+  logger::log_debug("extracting data from script.")
   dm_countries <- c()
   for (category in dm_data$categories) {
     for (type in category$type) {

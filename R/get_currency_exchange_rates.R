@@ -50,7 +50,7 @@ get_currency_exchange_rates <-
       .[["Series"]]
 
     if (is.null(raw_data)) {
-      log_error("No data found for the specified quarter: {quarter}.")
+      logger::log_error("No data found for the specified quarter: {quarter}.")
       stop("No data found for the specified quarter.")
     }
 
