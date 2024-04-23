@@ -76,7 +76,7 @@ get_index_regions <- function() {
     ct$get("JSON.stringify(chartDataEMJson)"),
     flatten = TRUE
   )
-  if (length(data$categories) == 0) {
+  if (length(data$categories) == 0L) {
     log_error("No data found for Emerging Markets.")
     stop("No data found for Emerging Markets.")
   }
