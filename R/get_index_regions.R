@@ -34,7 +34,7 @@ get_index_regions <- function() {
     ct$get("JSON.stringify(chartDataDMJson)"),
     flatten = TRUE
   )
-  if (length(dm_data$categories) == 0) {
+  if (length(dm_data$categories) == 0L) {
     log_error("No data found for Developed Markets.")
     stop("No data found for Developed Markets.")
   }
