@@ -38,6 +38,7 @@ Imports:
     dplyr (>= 1.1.0),
     httr2,
     jsonlite,
+    logger,
     lubridate,
     rlang,
     rvest,
@@ -45,8 +46,7 @@ Imports:
     tibble,
     tidyr,
     stringr,
-    V8,
-    logger
+    V8
 Depends: 
     R (>= 3.4.0)
 LazyData: true
