@@ -44,6 +44,11 @@ get_ishares_index_data <- function(url, name, as_of_date) {
     # JSON string contains (illegal) UTF8 byte-order-mark!
     jsonlite::fromJSON(data_path)$aaData
   )
+  if(length(raw_data) == 0L) {
+    log_error("No data found for the specified date.")
+    stop("No data found for the specified date.")
+  }
+  
 
   fixed_data <- fix_data(raw_data, data_names)
 

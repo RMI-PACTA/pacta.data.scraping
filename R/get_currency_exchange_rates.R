@@ -32,7 +32,7 @@ get_currency_exchange_rates <-
         year
       )
 
-    httr2::request(url) %>%
+    raw_data <- httr2::request(url) %>%
       httr2::req_headers("Accept" = "application/json") %>%
       httr2::req_timeout(max_seconds) %>%
       httr2::req_retry(
@@ -47,7 +47,14 @@ get_currency_exchange_rates <-
       httr2::resp_body_json(simplifyVector = TRUE) %>%
       .[["CompactData"]] %>%
       .[["DataSet"]] %>%
-      .[["Series"]] %>%
+      .[["Series"]]
+
+    if (is.null(raw_data)) {
+      log_error("No data found for the specified quarter: {quarter}.")
+      stop("No data found for the specified quarter.")
+    }
+
+    raw_data %>%
       dplyr::rowwise() %>%
       dplyr::mutate(Obs = list(as.data.frame(.data$Obs))) %>%
       tidyr::unnest(cols = "Obs") %>%
