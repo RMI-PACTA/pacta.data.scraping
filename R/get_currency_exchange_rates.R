@@ -38,7 +38,7 @@ get_currency_exchange_rates <-
       httr2::req_retry(
         max_seconds = max_seconds,
         is_transient = ~ httr2::resp_content_type(.x) != "application/json"
-        ) %>%
+      ) %>%
       httr2::req_error(
         is_error = ~ httr2::resp_content_type(.x) != "application/json",
         body = ~ cli::format_inline("IMF API did not return a valid response after {.val {max_seconds}} seconds.")
