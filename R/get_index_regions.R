@@ -40,7 +40,6 @@ get_index_regions <- function() {
   }
   
   log_debug("extracting data from script.")
-
   dm_countries <- c()
   for (category in dm_data$categories) {
     for (type in category$type) {
