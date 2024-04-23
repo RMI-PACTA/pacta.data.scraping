@@ -11,7 +11,7 @@ get_ishares_index_data(url, name, as_of_date)
 
 \item{name}{A string containing the name of the index.}
 
-\item{as_of_date}{A string indicating the desired as_of_date, by year, month
+\item{as_of_date}{A string indicating the desired date, by year, month
 and date, "YYYYMMDD" (e.g. "20201231"). Data will be scraped for date
 specified.}
 }
