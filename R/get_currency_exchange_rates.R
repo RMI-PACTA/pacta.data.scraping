@@ -42,7 +42,7 @@ get_currency_exchange_rates <-
       httr2::req_error(
         is_error = ~ httr2::resp_content_type(.x) != "application/json",
         body = ~ cli::format_inline("IMF API did not return a valid response after {.val {max_seconds}} seconds.")
-        ) %>%
+      ) %>%
       httr2::req_perform() %>%
       httr2::resp_body_json(simplifyVector = TRUE) %>%
       .[["CompactData"]] %>%
