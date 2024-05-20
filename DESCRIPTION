@@ -60,4 +60,3 @@ Config/testthat/edition: 3
 Config/Needs/website: rmi-pacta/pacta.pkgdown.rmitemplate
 URL: https://github.com/RMI-PACTA/pacta.data.scraping
 BugReports: https://github.com/RMI-PACTA/pacta.data.scraping/issues
-VignetteBuilder: knitr
