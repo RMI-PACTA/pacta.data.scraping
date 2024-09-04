@@ -8,8 +8,15 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      clean:
+        type: boolean
+        description: 'Clean all files from old site.'
+        default: false
 
 name: pkgdown
+
+permissions: read-all
 
 jobs:
   pkgdown:
@@ -19,6 +26,8 @@ jobs:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -41,6 +50,6 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4.6.3
         with:
-          clean: false
+          clean: ${{ github.event_name == 'workflow_dispatch' && inputs.clean || false }}
           branch: gh-pages
           folder: docs
