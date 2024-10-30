@@ -6,7 +6,7 @@
 [![R-CMD-check](https://github.com/RMI-PACTA/pacta.data.scraping/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/RMI-PACTA/pacta.data.scraping/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://img.shields.io/codecov/c/github/rmi-pacta/pacta.data.scraping)](https://codecov.io/gh/RMI-PACTA/pacta.data.scraping)
 [![CRAN status](https://www.r-pkg.org/badges/version/pacta.data.scraping)](https://CRAN.R-project.org/package=pacta.data.scraping)
-[![pacta.data.scraping status badge](https://rmi-pacta.r-universe.dev/badges/pacta.data.scraping)](https://rmi-pacta.r-universe.dev/ui#package:pacta.data.scraping)
+[![pacta.data.scraping status badge](https://rmi-pacta.r-universe.dev/badges/pacta.data.scraping)](https://rmi-pacta.r-universe.dev/pacta.data.scraping)
 
 <!-- badges: end -->
 
