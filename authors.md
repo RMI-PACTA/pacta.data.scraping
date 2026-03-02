@@ -22,14 +22,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/RMI-PACTA/pacta.data.scraping/blob/main/DESCRIPTION)
 
-Yetman C, Hoffart J, Kastl J, Axthelm A (2025). *pacta.data.scraping:
+Yetman C, Hoffart J, Kastl J, Axthelm A (2026). *pacta.data.scraping:
 Scrapes data from various web sources needed for PACTA*. R package
 version 0.1.0.9000, <https://github.com/RMI-PACTA/pacta.data.scraping>.
 
     @Manual{,
       title = {pacta.data.scraping: Scrapes data from various web sources needed for PACTA},
       author = {CJ Yetman and Jackson Hoffart and Jacob Kastl and Alex Axthelm},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.1.0.9000},
       url = {https://github.com/RMI-PACTA/pacta.data.scraping},
     }
